@@ -1,4 +1,6 @@
 function walk(node,func){
+    // iterate all of childeren of node with func
+
     func(node);
     node = node.firstChild
     while(node){
@@ -8,7 +10,7 @@ function walk(node,func){
 }
 function parseJSON(strItem){
     var err;
-    var item = strItem.replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": ');
+    var item = strItem.replace(/(['"])?([a-z0-9A-Z_]+)(['"])?:/g, '"$2": '); //add quote("") to keyword
     try{
         [err,item] = [null, JSON.parse(item)];
     }catch(e){
@@ -39,14 +41,15 @@ function findChartJson(topNode, indicator="%%"){
 
     walk(topNode,findNode);
     console.log(jsons)
-    jsons = jsons.map(item => ({ node:item.node, json:parseJSON(item.json)[1] }))
+    jsons = jsons.map(item => ({ node: item.node, json: parseJSON(item.json)[1] }))
                  .filter(item => item.json != undefined)
-                 .filter(item => item.json.type && item.json.data && item.json.data.datasets);
+                 .filter(item => item.json.type && item.json.data && item.json.data.datasets); //check if it is the JSON for chart.js or not
     console.log(jsons)
     return jsons;
 }
 
 function drawChart(chartJsons, chartIdPrefix="chart-on-"){
+    //replace node with chart canvas
     const idPrefix = chartIdPrefix;
 
     return chartJsons.map( (element,idx)=>{
@@ -60,6 +63,7 @@ function drawChart(chartJsons, chartIdPrefix="chart-on-"){
 
 var previous_onload = window.onload
 window.onload = function(){
+    //start automatically after loading is complete
     if(previous_onload){
         previous_onload();
     }
@@ -67,5 +71,3 @@ window.onload = function(){
     let chartJsons = findChartJson(body);
     let result = drawChart(chartJsons)
 }
-
-    
