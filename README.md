@@ -45,3 +45,7 @@ $$
 ## 참고자료
 - [`chart.js`](https://www.chartjs.org/) : chart.js를 위한 `json` 작성법은 여기에서 배울 수 있습니다.
 - [`MathJax`](https://www.mathjax.org/#gettingstarted) : 수식 입력은 여기에서 배울 수 있습니다.
+
+## 주의사항
+- [`JSON` 문법](https://www.w3schools.com/js/js_json_syntax.asp)을 잘 지켜주어야 합니다. (key도 ""로 묶인 "key"여야 합니다.)
+- 한 문단이 `%%`로 시작하여 `%%`로 끝나야 합니다.
