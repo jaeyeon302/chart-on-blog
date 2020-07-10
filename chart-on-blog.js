@@ -52,7 +52,7 @@ function parseMD(item, seperator=":"){
             let json = {};
             let key,val;
             if(element.childElementCount == 0){
-                return json;
+                return [null,json];
             }
             let children = Array.from(element.children)
             children.map( (liItem)=>{
