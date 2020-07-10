@@ -10,7 +10,7 @@
   ...
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-  <script src="https://rawcdn.githack.com/jaeyeon302/chart-on-blog/ea31a7fcd7f2487fc858f7c9f041835fd3b47836/chart-on-blog.js"></script>
+  <script src="https://rawcdn.githack.com/jaeyeon302/chart-on-blog/adab9302c15b0f356ea7caf529dc35e46592f2eb/chart-on-blog.js"></script>
 </header>
 ```
 #### 2. 블로그 포스트에 차트 작성하기
