@@ -156,7 +156,6 @@ function parseMD(item, seperator=":"){
     let value
     value = keyValue(item)[1] //get value
     value = fitJsonForChart(value)
-    ret.push(value)
     return value
 }
 
