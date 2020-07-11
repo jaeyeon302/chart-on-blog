@@ -110,6 +110,22 @@ function parseMD(item, seperator=":"){
         return arr
     }
 
+    const isBoolean = (str)=>{
+        if(typeof str !== "string"){
+            return false
+        }
+        str = str.trim()
+        if(str == "false" || str == "true" ){
+            return true
+        }else{
+            return false
+        }
+    }
+    const str2Bool = (str)=>{
+        str = str.trim()
+        return str == "true"
+    }
+
     const fitJsonForChart = (item)=>{
         if(typeof item === "object"){
             //item is json {key : value}
@@ -125,9 +141,12 @@ function parseMD(item, seperator=":"){
             return item
         }else{
             //item is value (final state of recursion)
-            if(isArrFormat(item)){
-                // convert the str into the array if the str has array format
+            if(isArrFormat(item)){ // convert the str into the array if the str has array format
                 return str2arr(item)
+            }else if(isBoolean(item)){
+                return str2Bool(item)
+            }else if(Number(item)){
+                return Number(item)
             }else{
                 return item
             }
@@ -137,6 +156,7 @@ function parseMD(item, seperator=":"){
     let value
     value = keyValue(item)[1] //get value
     value = fitJsonForChart(value)
+    ret.push(value)
     return value
 }
 
