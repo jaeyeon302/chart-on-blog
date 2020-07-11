@@ -10,7 +10,7 @@
   ...
   
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
-  <script src="https://rawcdn.githack.com/jaeyeon302/chart-on-blog/adab9302c15b0f356ea7caf529dc35e46592f2eb/chart-on-blog.js"></script>
+  <script src="https://rawcdn.githack.com/jaeyeon302/chart-on-blog/e6367c64dabf5c87f1855cba4f666d0798472a3c/chart-on-blog.js"></script>
 </header>
 ```
 #### 2. 블로그 포스트에 차트 작성하기
@@ -53,13 +53,50 @@
 - [예제 링크](https://coconutzip.tistory.com/15)
 
 ## 참고자료
-- [`chart.js`](https://www.chartjs.org/) : chart.js를 위한 `json` 작성법은 여기에서 배울 수 있습니다. 
-- [`MathJax`](https://www.mathjax.org/#gettingstarted) : 수식 입력은 여기에서 배울 수 있습니다.
+- [`chart.js`](https://www.chartjs.org/docs/latest/) : chart.js를 위한 `json` 작성법은 여기에서 배울 수 있습니다. 
 
-## 주의사항
+## 상세 설명
 - markdown list style로 작성됩니다. 
 - (markdown 기준) `- %%` (unordered list) 로 시작해서 `- %%`로 닫아주면 해당 영역에 chart가 그려집니다
-- 따옴표 ("")는 사용하지 않습니다. 숫자로 변환될 것들은 자동으로 변환됩니다.
+- `json`으로 작성해야할 때 따옴표(" ")로 묶어주어야하는 값들을 묶어주지 않고 작성할 수 있습니다
+- 여러 데이터 셋은 `- 0 :`, `- 1 :`, `- 2 :` ... 식으로 list로 작성합니다.
+``` javascript
+{
+"datasets" : [
+      {
+      "data" :[300,50,100],
+      "backgroundColor" :[ "#FF6384", "#36A2EB", "#FFCE56" ],
+      "hoverBackgroundColor" : [ "#FF6384", "#36A2EB", "#FFCE56" ]
+      },
+      {
+      "data" :[100,50,300],
+      "backgroundColor" :[ "#BCBCBC", "#EAEAEA", "#000000" ],
+      "hoverBackgroundColor" : ["#BCBCBC", "#EAEAEA", "#000000" ]
+      },
+      {
+      "data" :[50,50,350],
+      "backgroundColor" :[ "#AC0909", "#BC0909", "#CD0909" ],
+      "hoverBackgroundColor" : [ "#AC0909", "#BC0909", "#CD0909" ]
+      }
+      ]
+}
+```
+> 위와 같은 여러 `datasets`는 아래와 같이 작성합니다.
+```
+- datasets :
+  - 0 :
+      - data : [300,50,100]
+      - backgroundColor : [#FF6384, #36A2EB, #FFCE56]
+      - hoverBackgroundColor : [#FF6384, #36A2EB, #FFCE56]
+  - 1 :
+      - data : [100,50,300]
+      - backgroundColor : [#BCBCBC, #EAEAEA, #000000]
+      - hoverBackgroundColor : [#BCBCBC, #EAEAEA, #000000]
+  - 2 :
+      - data : [50,50,350],
+      - backgroundColor : [#AC0909, #BC0909, #CD0909]
+      - hoverBackgroundColor : [#AC0909, #BC0909, #CD0909]
+```
 
 ## 제한사항
 - 아직 색상 값은 HEX(ex : #FFABFF) 만 지원합니다.
