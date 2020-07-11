@@ -33,6 +33,22 @@
 - %%
 
 ```
+> 위 데이터는 아래 json과 동치입니다.
+```javascript
+{
+  "type" : "pie",
+  "data" : {
+    "labels" :["Red","Blue","Yellow"],
+    "datasets" : [{
+      "data" :[300,50,100],
+      "backgroundColor" :[ "#FF6384", "#36A2EB", "#FFCE56" ],
+      "hoverBackgroundColor" : [ "#FF6384", "#36A2EB", "#FFCE56" ]
+      }]
+  },
+  "options" : {}
+}    
+```
+
 ## 데모
 - [예제 링크](https://coconutzip.tistory.com/15)
 
@@ -41,6 +57,10 @@
 - [`MathJax`](https://www.mathjax.org/#gettingstarted) : 수식 입력은 여기에서 배울 수 있습니다.
 
 ## 주의사항
-- markdown 기반으로 작성됩니다. 
+- markdown list style로 작성됩니다. 
 - (markdown 기준) `- %%` (unordered list) 로 시작해서 `- %%`로 닫아주면 해당 영역에 chart가 그려집니다
 - 따옴표 ("")는 사용하지 않습니다. 숫자로 변환될 것들은 자동으로 변환됩니다.
+
+## 제한사항
+- 아직 색상 값은 HEX(ex : #FFABFF) 만 지원합니다.
+- options의 callback은 (ex : [Animation callback](https://www.chartjs.org/docs/latest/configuration/animations.html)) 지원하고 있지 않습니다.
